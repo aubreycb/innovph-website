@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=12.4">
+<title>Examination Center | INNOVPH Academy</title>
+<meta name="description" content="Access INNOVPH Academy examinations only during designated examination windows communicated by the facilitator.">
+
+<style>
+  .exam-toolbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .exam-toolbar p {
+    color: #4b5563;
+    line-height: 1.7;
+    max-width: 920px;
+  }
+
+  .exam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  @media (min-width: 1200px) {
+    .exam-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .exam-card {
+    width: 100%;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    background: #ffffff;
+    padding: 24px;
+  }
+
+  .exam-card h3 {
+    color: #111827;
+    font-size: 18px;
+    line-height: 1.35;
+    margin: 0 0 16px;
+  }
+
+  .exam-meta {
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+
+  .exam-meta strong {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .exam-note {
+    color: #4b5563 !important;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #f9fafb;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .exam-note p {
+    color: #4b5563 !important;
+    margin: 0 0 12px;
+  }
+
+  .exam-note p:last-child {
+    margin-bottom: 0;
+  }
+
+  .exam-note strong {
+    display: block;
+    color: #111827 !important;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .exam-empty {
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    padding: 26px;
+    max-width: 900px;
+  }
+
+  .exam-loading {
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  .exam-actions {
+    margin-top: 18px;
+  }
+
+  .exam-actions .btn {
+    font-size: 13px;
+    letter-spacing: 0.03em;
+  }
+
+  .exam-embed-wrap {
+    display: none;
+    margin-top: 22px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .exam-embed-wrap.is-visible {
+    display: block;
+  }
+
+  .exam-embed-wrap iframe {
+    width: 100%;
+    min-height: 780px;
+    border: 0;
+    display: block;
+  }
+
+  @media (max-width: 860px) {
+    .exam-toolbar {
+      display: block;
+    }
+    .exam-grid {
+      grid-template-columns: 1fr;
+    }
+    .exam-embed-wrap iframe {
+      min-height: 720px;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo">
+    </a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Request Consultation</a>
+  </div>
+</header>
+<main>
+  <section class="page-hero academy-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow">Examination Center</p>
+      <h1>Access Examinations</h1>
+      <p class="lead">View available INNOVPH Academy examinations and access assessments only during designated examination windows.</p>
+      <div class="button-row"><a href="#examination-sessions" class="btn primary">View Available Examinations</a><a href="academy.html" class="btn outline">Back to Academy</a></div>
+    </div>
+  </section>
+
+  <section class="academy-section academy-main" id="examination-sessions">
+    <div class="container">
+      <div class="academy-panel dedicated-panel">
+        <div class="exam-toolbar">
+          <div>
+            <p class="section-kicker">Examination Sessions</p>
+            <h2 class="bt-section-title">Select the examination assigned to your program.</h2>
+            <p>Examination access is made available only during designated periods communicated by the facilitator. Please use the same email address, course code, and training date used for registration, attendance, and certification records.</p>
+          </div>
+        </div>
+
+        <div id="examContent" class="exam-loading">Loading examination sessions...</div>
+        <div id="examEmbedContainer" class="exam-embed-wrap" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo" class="footer-logo">
+      <p>Driving Solutions To The Future</p>
+      <p class="footer-note">Serving Clients Across the Philippines and Globally through virtual and on-site engagements.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+639772953056">0977 295 3056</a>
+      <a href="mailto:contact_us@innovationphconsulting.com">contact_us@innovationphconsulting.com</a>
+      <a href="https://www.facebook.com/innovationphilippinesconsulting" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/Innovph" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 INNOVPH. All rights reserved.</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+  // R2D2 will provide this endpoint once the Examination feed is ready.
+  // Expected JSON fields: programTitle, courseCode, trainingDate, schedule, examinationLink, examinationStatus, examDisplayMode, displayOrder.
+  const INNOVPH_EXAM_FEED = "";
+
+  const examNotice = `
+    <div class="exam-empty">
+      <div class="exam-note">
+        <strong>There are currently no examinations available.</strong>
+        <p>Examination access is opened only during designated periods communicated by the facilitator during the official session. The timing of examinations may vary based on program requirements and assessment instructions.</p>
+        <p>If your examination is scheduled for the current session, please wait for the facilitator's instructions before accessing the assessment.</p>
+      </div>
+    </div>
+  `;
+
+  const escapeHtml = (value) => String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+  function hideExamEmbed() {
+    const embedContainer = document.getElementById("examEmbedContainer");
+    if (!embedContainer) return;
+    embedContainer.className = "exam-embed-wrap";
+    embedContainer.innerHTML = "";
+  }
+
+  function showEmbeddedExam(link, title) {
+    const embedContainer = document.getElementById("examEmbedContainer");
+    if (!embedContainer || !link) return;
+
+    embedContainer.className = "exam-embed-wrap is-visible";
+    embedContainer.innerHTML = `
+      <iframe src="${escapeHtml(link)}" title="${escapeHtml(title || 'INNOVPH Examination')}">Loading examination...</iframe>
+    `;
+    embedContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderExamCard(session, index) {
+    const isOpen = String(session.examinationStatus || "").toLowerCase() === "open";
+    const mode = String(session.examDisplayMode || "external").toLowerCase();
+    const link = session.examinationLink || "";
+
+    let actionHtml = `<div class="exam-note">
+        <strong>There are currently no examinations available.</strong>
+        <p>Examination access is opened only during designated periods communicated by the facilitator during the official session. The timing of examinations may vary based on program requirements and assessment instructions.</p>
+        <p>If your examination is scheduled for the current session, please wait for the facilitator's instructions before accessing the assessment.</p>
+      </div>`;
+
+    if (isOpen && link) {
+      if (mode === "embed" || mode === "embedded") {
+        actionHtml = `<div class="exam-actions"><button class="btn primary" type="button" data-exam-embed="${escapeHtml(link)}" data-exam-title="${escapeHtml(session.programTitle)}">Start Examination</button></div>`;
+      } else {
+        actionHtml = `<div class="exam-actions"><a class="btn primary" href="${escapeHtml(link)}" target="_blank" rel="noopener">Start Examination</a></div>`;
+      }
+    }
+
+    return `
+      <article class="exam-card">
+        <h3>${escapeHtml(session.programTitle)}</h3>
+        <div class="exam-meta">
+          <div><strong>Course Code:</strong> ${escapeHtml(session.courseCode)}</div>
+          <div><strong>Training Date:</strong> ${escapeHtml(session.trainingDate)}</div>
+          ${session.schedule ? `<div><strong>Schedule:</strong> ${escapeHtml(session.schedule)}</div>` : ""}
+        </div>
+        ${actionHtml}
+      </article>
+    `;
+  }
+
+  async function loadExaminationSessions() {
+    const container = document.getElementById("examContent");
+    if (!container) return;
+
+    hideExamEmbed();
+
+    if (!INNOVPH_EXAM_FEED) {
+      container.className = "";
+      container.innerHTML = examNotice;
+      return;
+    }
+
+    try {
+      const response = await fetch(INNOVPH_EXAM_FEED, { cache: "no-store" });
+      if (!response.ok) throw new Error("Examination feed unavailable");
+
+      const sessions = await response.json();
+      const visibleSessions = Array.isArray(sessions) ? sessions : [];
+
+      if (!visibleSessions.length) {
+        container.className = "";
+        container.innerHTML = examNotice;
+        return;
+      }
+
+      container.className = "exam-grid";
+      container.innerHTML = visibleSessions.map(renderExamCard).join("");
+    } catch (error) {
+      container.className = "";
+      container.innerHTML = examNotice;
+    }
+  }
+
+  document.addEventListener("click", function(event) {
+    const target = event.target.closest("[data-exam-embed]");
+    if (!target) return;
+    showEmbeddedExam(target.getAttribute("data-exam-embed"), target.getAttribute("data-exam-title"));
+  });
+
+  document.addEventListener("DOMContentLoaded", loadExaminationSessions);
+</script>
+</body>
+</html>

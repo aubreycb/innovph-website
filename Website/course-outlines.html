@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=12.8.4">
+<title>INNOVPH Academy | Course Outlines</title>
+<meta name="description" content="Search INNOVPH Academy courses, browse by category, and download course outline PDFs.">
+</head>
+<body>
+<div class="academy-utility-bar">
+  <div class="container academy-utility-inner">
+    <a class="utility-active" href="academy.html">Academy</a>
+    <span>·</span>
+    <a href="academy-verify.html">Verify Certificate</a>
+    <span>·</span>
+    <a href="academy-student.html">Student Access</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html"><img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo"></a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Request Consultation</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero academy-hero course-outline-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow">INNOVPH Academy</p>
+      <h1>Course Outlines</h1>
+      <p class="lead">Search programs, browse by learning area, and download the official course outline for the program you need.</p>
+      <div class="button-row">
+        <a href="academy.html#explore-programs" class="btn outline">Back to Academy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="academy-section academy-main">
+    <div class="container academy-layout">
+      <aside class="academy-sidebar course-outline-sidebar">
+        <a href="academy.html#programs" class="academy-side-main">PROGRAMS</a>
+        <div class="academy-subnav">
+          <a href="academy.html#upcoming-programs">Upcoming Public Programs</a>
+          <a href="academy.html#explore-programs">Explore Our Programs</a>
+        </div>
+        <a href="academy-attendance.html">Attendance Submission</a>
+        <a href="academy-exam.html">Examination Center</a>
+        <a href="academy-verify.html">Verify Certificate</a>
+        <a href="academy-student.html">Student Access</a>
+        <a href="academy-support.html">Help & Support</a>
+      </aside>
+
+      <div class="academy-content">
+        <section class="academy-panel course-search-panel">
+          <p class="section-kicker">Explore Our Programs</p>
+          <h2 class="bt-section-title" id="coursePageTitle">Browse course outlines.</h2>
+          <p class="bt-intro">Choose a category, search for a specific course, or download a course outline PDF directly from the course card.</p>
+
+          <div class="course-search-wrap">
+            <input id="courseSearchInput" class="course-search-input" type="search" placeholder="Search courses, topics, levels, or keywords..." autocomplete="off">
+          </div>
+
+          <div class="course-category-tabs" id="courseCategoryTabs" aria-label="Course categories"></div>
+        </section>
+
+        <section class="academy-panel featured-course-panel" id="featuredCoursePanel">
+          <p class="section-kicker">Suggested Programs</p>
+          <h2 class="bt-section-title">Recommended course outlines.</h2>
+          <div class="course-outline-grid" id="featuredCourseGrid"></div>
+        </section>
+
+        <section class="academy-panel">
+          <div class="academy-section-head course-results-head">
+            <div>
+              <p class="section-kicker" id="resultsKicker">Course List</p>
+              <h2 class="bt-section-title" id="resultsTitle">Available course outlines.</h2>
+            </div>
+            <div class="academy-note" id="resultsCount">Loading courses...</div>
+          </div>
+
+          <div class="course-outline-grid" id="courseOutlineGrid">
+            <article class="program-card empty-program-card">
+              <div class="program-card-body">
+                <span class="program-type">Loading</span>
+                <h3>Loading course outlines...</h3>
+                <p>Please wait while INNOVPH Academy retrieves the available course outlines.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo" class="footer-logo">
+      <p>Driving Solutions To The Future</p>
+      <p class="footer-note">Serving Clients Across the Philippines and Globally through virtual and on-site engagements.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+    </div>
+    <div>
+      <h4>Academy</h4>
+      <a href="academy.html">Academy Home</a>
+      <a href="academy.html#explore-programs">Explore Programs</a>
+      <a href="academy-exam.html">Examination Center</a>
+      <a href="academy-verify.html">Verify Certificate</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+639772953056">0977 295 3056</a>
+      <a href="mailto:contact_us@innovationphconsulting.com">contact_us@innovationphconsulting.com</a>
+      <a href="https://www.facebook.com/innovationphilippinesconsulting" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/Innovph" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="container footer-bottom"><p>© 2026 INNOVPH. All rights reserved.</p></div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/***** INNOVPH Academy - Course Outlines Landing Page *****/
+
+const INNOVPH_COURSE_OUTLINES_FEED = "https://script.google.com/macros/s/AKfycbyTQfiINfNMRvTE25VEUotPbh-BYf-VKd4Bk4kJSlAcMWte9zhRArv7hsdEbrI7-GyD/exec";
+
+const COURSE_CATEGORIES = [
+  { slug: "all", label: "All Programs" },
+  { slug: "business-transformation", label: "Business Transformation" },
+  { slug: "lean-six-sigma", label: "Lean Six Sigma" },
+  { slug: "excel-analytics", label: "Excel & Analytics" },
+  { slug: "ai-automation", label: "AI & Automation" },
+  { slug: "project-business-skills", label: "Project & Business Skills" }
+];
+
+let allCourses = [];
+let currentCategory = getInitialCategory();
+let loadErrorMessage = "";
+
+function getInitialCategory() {
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get("category") || "all";
+  return COURSE_CATEGORIES.some(item => item.slug === category) ? category : "all";
+}
+
+function getSearchTerm() {
+  return document.getElementById("courseSearchInput").value.trim().toLowerCase();
+}
+
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function resolveCategory(value) {
+  const raw = String(value || "").trim();
+  const normalized = slugify(raw);
+  const aliases = {
+    "business-transformation": "business-transformation",
+    "lean-six-sigma": "lean-six-sigma",
+    "excel-analytics": "excel-analytics",
+    "excel-and-analytics": "excel-analytics",
+    "ai-automation": "ai-automation",
+    "ai-and-automation": "ai-automation",
+    "project-business-skills": "project-business-skills",
+    "project-and-business-skills": "project-business-skills"
+  };
+  const slug = aliases[normalized] || normalized;
+  const category = COURSE_CATEGORIES.find(item => item.slug === slug);
+  return {
+    slug: category ? category.slug : slug,
+    label: category ? category.label : raw
+  };
+}
+
+function normalizeCourse(raw) {
+  const categoryValue = raw.category || raw.Category || "";
+  const resolvedCategory = resolveCategory(categoryValue);
+  return {
+    status: raw.status || raw.Status || "Active",
+    category: resolvedCategory.slug,
+    categoryLabel: raw.categoryLabel || raw["Category Label"] || resolvedCategory.label || "General Program",
+    courseTitle: raw.courseTitle || raw["Course Title"] || raw.title || raw.Title || "Untitled Course",
+    level: raw.level || raw.Level || "",
+    duration: raw.duration || raw.Duration || "",
+    format: raw.format || raw.Format || raw.deliveryMode || raw["Delivery Mode"] || "",
+    certification: raw.certification || raw.Certification || raw.certificateType || raw["Certificate Type"] || "",
+    keywords: raw.keywords || raw.Keywords || "",
+    featured: raw.featured || raw.Featured || "No",
+    pdfCourseOutlineLink: raw.pdfCourseOutlineLink || raw["PDF Course Outline Link"] || raw.pdfOutlineLink || raw["PDF Outline Link"] || raw.pdfLink || raw["PDF Link"] || "#",
+    displayOrder: Number(raw.displayOrder || raw["Display Order"]) || 999
+  };
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function createCategoryTabs() {
+  const tabs = document.getElementById("courseCategoryTabs");
+  tabs.innerHTML = "";
+  COURSE_CATEGORIES.forEach(item => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "course-tab" + (item.slug === currentCategory ? " active" : "");
+    button.textContent = item.label;
+    button.addEventListener("click", () => {
+      currentCategory = item.slug;
+      document.getElementById("courseSearchInput").value = "";
+      const url = new URL(window.location.href);
+      if (currentCategory === "all") url.searchParams.delete("category");
+      else url.searchParams.set("category", currentCategory);
+      window.history.replaceState({}, "", url);
+      renderCourses();
+    });
+    tabs.appendChild(button);
+  });
+}
+
+function createCourseCard(course) {
+  const pdfLink = course.pdfCourseOutlineLink || "#";
+  const isPdfReady = pdfLink && pdfLink !== "#";
+  const card = document.createElement("article");
+  card.className = "course-outline-card";
+  card.innerHTML =
+    '<div class="course-card-topline">' +
+      '<span class="program-type">' + escapeHtml(course.categoryLabel) + '</span>' +
+      (course.level ? '<span class="course-level">' + escapeHtml(course.level) + '</span>' : '') +
+    '</div>' +
+    '<h3>' + escapeHtml(course.courseTitle) + '</h3>' +
+    '<div class="course-meta">' +
+      (course.duration ? '<div><strong>Duration:</strong> ' + escapeHtml(course.duration) + '</div>' : '') +
+      (course.format ? '<div><strong>Format:</strong> ' + escapeHtml(course.format) + '</div>' : '') +
+      (course.certification ? '<div><strong>Certification:</strong> ' + escapeHtml(course.certification) + '</div>' : '') +
+    '</div>' +
+    '<a href="' + escapeHtml(pdfLink) + '" class="btn primary course-download" ' + (isPdfReady ? 'target="_blank" rel="noopener"' : 'aria-disabled="true"') + '>' + (isPdfReady ? 'View Course Outline' : 'Course Outline To Follow') + '</a>';
+  return card;
+}
+
+function courseMatchesSearch(course, search) {
+  if (!search) return true;
+  const haystack = [course.categoryLabel, course.courseTitle, course.level, course.duration, course.format, course.certification, course.keywords].join(" ").toLowerCase();
+  return haystack.includes(search);
+}
+
+function courseMatchesCategory(course) {
+  return currentCategory === "all" || slugify(course.category) === currentCategory || slugify(course.categoryLabel) === currentCategory;
+}
+
+function getFilteredCourses() {
+  const search = getSearchTerm();
+  return allCourses
+    .filter(course => String(course.status).toLowerCase() === "active")
+    // Search is intentionally global, so users can find IBT even when they came from another category.
+    .filter(course => search ? true : courseMatchesCategory(course))
+    .filter(course => courseMatchesSearch(course, search))
+    .sort((a,b) => a.displayOrder - b.displayOrder || a.courseTitle.localeCompare(b.courseTitle));
+}
+
+function renderFeaturedCourses() {
+  const panel = document.getElementById("featuredCoursePanel");
+  const grid = document.getElementById("featuredCourseGrid");
+  const search = getSearchTerm();
+
+  if (search || loadErrorMessage) {
+    panel.style.display = "none";
+    return;
+  }
+
+  const featured = allCourses
+    .filter(course => String(course.status).toLowerCase() === "active")
+    .filter(course => String(course.featured).toLowerCase() === "yes")
+    .filter(course => currentCategory === "all" ? true : courseMatchesCategory(course))
+    .slice(0, 3);
+
+  if (!featured.length) {
+    panel.style.display = "none";
+    return;
+  }
+
+  panel.style.display = "block";
+  grid.innerHTML = "";
+  featured.forEach(course => grid.appendChild(createCourseCard(course)));
+}
+
+function renderCourses() {
+  createCategoryTabs();
+  renderFeaturedCourses();
+
+  const selected = COURSE_CATEGORIES.find(item => item.slug === currentCategory) || COURSE_CATEGORIES[0];
+  const search = getSearchTerm();
+  const title = search ? 'Search results for "' + search + '".' : (currentCategory === "all" ? "Browse all course outlines." : selected.label + " course outlines.");
+  document.getElementById("coursePageTitle").textContent = title;
+  document.getElementById("resultsTitle").textContent = title;
+  document.getElementById("resultsKicker").textContent = search ? "Search Results" : selected.label;
+
+  const grid = document.getElementById("courseOutlineGrid");
+
+  if (loadErrorMessage) {
+    document.getElementById("resultsCount").textContent = "Course feed unavailable";
+    grid.innerHTML = '<article class="program-card empty-program-card"><div class="program-card-body"><span class="program-type">Setup required</span><h3>Course outlines cannot be loaded yet.</h3><p>' + escapeHtml(loadErrorMessage) + '</p></div></article>';
+    return;
+  }
+
+  const results = getFilteredCourses();
+  document.getElementById("resultsCount").textContent = results.length + " course outline" + (results.length === 1 ? "" : "s") + " available";
+
+  grid.innerHTML = "";
+  if (!results.length) {
+    grid.innerHTML = '<article class="program-card empty-program-card"><div class="program-card-body"><span class="program-type">No result</span><h3>No course outline found.</h3><p>Try another category or search keyword.</p></div></article>';
+    return;
+  }
+
+  results.forEach(course => grid.appendChild(createCourseCard(course)));
+}
+
+async function loadCourseOutlines() {
+  try {
+    const response = await fetch(INNOVPH_COURSE_OUTLINES_FEED, { cache: "no-store" });
+    if (!response.ok) throw new Error("Unable to load course outlines.");
+    const records = await response.json();
+    allCourses = Array.isArray(records) ? records.map(normalizeCourse) : [];
+    loadErrorMessage = "";
+    renderCourses();
+  } catch (error) {
+    allCourses = [];
+    loadErrorMessage = "Please check the R2D2 CourseOutlines Web App link and confirm that the Google Sheet tab is named exactly CourseOutlines.";
+    renderCourses();
+  }
+}
+
+document.getElementById("courseSearchInput").addEventListener("input", renderCourses);
+loadCourseOutlines();
+</script>
+</body>
+</html>

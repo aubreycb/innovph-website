@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=12.4">
+<title>Submit Attendance | INNOVPH Academy</title>
+<meta name="description" content="View active INNOVPH Academy sessions and submit attendance only during official attendance windows announced by the facilitator.">
+<style>
+  .attendance-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .attendance-toolbar p {
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .attendance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 1100px) {
+    .attendance-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .attendance-card {
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .attendance-card h3 {
+    margin: 0 0 16px;
+    font-size: 20px;
+    line-height: 1.25;
+    color: #111827;
+  }
+
+  .attendance-meta {
+    display: grid;
+    gap: 7px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #4b5563;
+  }
+
+  .attendance-meta strong {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .attendance-note {
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    padding: 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #374151 !important;
+  }
+
+  .attendance-note p {
+    color: #374151 !important;
+    margin: 0 0 12px;
+  }
+
+  .attendance-note p:last-child {
+    margin-bottom: 0;
+  }
+
+  .attendance-note strong {
+    display: block;
+    color: #111827 !important;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .attendance-empty {
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    padding: 26px;
+    max-width: 900px;
+  }
+
+  .attendance-loading {
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  .attendance-actions {
+    margin-top: 18px;
+  }
+
+  .attendance-actions .btn {
+    font-size: 13px;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 860px) {
+    .attendance-toolbar {
+      display: block;
+    }
+    .attendance-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo">
+    </a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Request Consultation</a>
+  </div>
+</header>
+<main>
+  <section class="page-hero academy-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow">Attendance Submission</p>
+      <h1>Submit Attendance</h1>
+      <p class="lead">View active INNOVPH Academy sessions and submit attendance only when instructed during the official session.</p>
+      <div class="button-row"><a href="#attendance-sessions" class="btn primary">View Available Sessions</a><a href="academy.html" class="btn outline">Back to Academy</a></div>
+    </div>
+  </section>
+
+  <section class="academy-section academy-main" id="attendance-sessions">
+    <div class="container">
+      <div class="academy-panel dedicated-panel">
+        <div class="attendance-toolbar">
+          <div>
+            <p class="section-kicker">Attendance Sessions</p>
+            <h2 class="bt-section-title">Select the session you attended.</h2>
+            <p>Attendance forms are made available only during designated periods communicated by the facilitator. Please use the same email address, course code, and training date used for registration and certification records.</p>
+          </div>
+        </div>
+
+        <div id="attendanceContent" class="attendance-loading">Loading attendance sessions...</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo" class="footer-logo">
+      <p>Driving Solutions To The Future</p>
+      <p class="footer-note">Serving Clients Across the Philippines and Globally through virtual and on-site engagements.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+639772953056">0977 295 3056</a>
+      <a href="mailto:contact_us@innovationphconsulting.com">contact_us@innovationphconsulting.com</a>
+      <a href="https://www.facebook.com/innovationphilippinesconsulting" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/Innovph" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 INNOVPH. All rights reserved.</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+  const INNOVPH_ATTENDANCE_FEED = "https://script.google.com/macros/s/AKfycbwYa5VyyUlDSVZB0pceaZLkn0YMm4Tcs7Gb7ccxPfRRqcnNJM0vjJ6qrHglnpzFD2Y/exec";
+
+  const attendanceNotice = `
+    <div class="attendance-empty">
+      <div class="attendance-note">
+        <strong>There are currently no attendance submissions available.</strong>
+        <p>Attendance submissions are opened only during designated periods communicated by the facilitator during the official session. The timing of attendance submissions may vary throughout the training to help ensure accurate participation records.</p>
+        <p>If your session is currently in progress, please wait for the facilitator's instructions before submitting your attendance.</p>
+      </div>
+    </div>
+  `;
+
+  const escapeHtml = (value) => String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+  function renderAttendanceCard(session) {
+    const isOpen = String(session.attendanceStatus || "").toLowerCase() === "open";
+    const actionHtml = isOpen && session.attendanceFormLink
+      ? `<div class="attendance-actions"><a class="btn primary" href="${escapeHtml(session.attendanceFormLink)}" target="_blank" rel="noopener">Submit Attendance</a></div>`
+      : `<div class="attendance-note">
+          <strong>There are currently no attendance submissions available.</strong>
+          <p>Attendance submissions are opened only during designated periods communicated by the facilitator during the official session. The timing of attendance submissions may vary throughout the training to help ensure accurate participation records.</p>
+          <p>If your session is currently in progress, please wait for the facilitator's instructions before submitting your attendance.</p>
+        </div>`;
+
+    return `
+      <article class="attendance-card">
+        <h3>${escapeHtml(session.programTitle)}</h3>
+        <div class="attendance-meta">
+          <div><strong>Course Code:</strong> ${escapeHtml(session.courseCode)}</div>
+          <div><strong>Training Date:</strong> ${escapeHtml(session.trainingDate)}</div>
+          <div><strong>Schedule:</strong> ${escapeHtml(session.schedule)}</div>
+        </div>
+        ${actionHtml}
+      </article>
+    `;
+  }
+
+  async function loadAttendanceSessions() {
+    const container = document.getElementById("attendanceContent");
+    if (!container) return;
+
+    try {
+      const response = await fetch(INNOVPH_ATTENDANCE_FEED, { cache: "no-store" });
+      if (!response.ok) throw new Error("Attendance feed unavailable");
+
+      const sessions = await response.json();
+      const visibleSessions = Array.isArray(sessions) ? sessions : [];
+
+      if (!visibleSessions.length) {
+        container.className = "";
+        container.innerHTML = attendanceNotice;
+        return;
+      }
+
+      container.className = "attendance-grid";
+      container.innerHTML = visibleSessions.map(renderAttendanceCard).join("");
+    } catch (error) {
+      container.className = "";
+      container.innerHTML = attendanceNotice;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", loadAttendanceSessions);
+</script>
+</body>
+</html>

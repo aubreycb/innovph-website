@@ -187,3 +187,59 @@ V12.7.2 Update:
 V12.7.3 Update:
 - Added Stay Connected / Subscribe section to Contact Us page.
 - Reused homepage-style subscription concept for community and lead capture.
+
+
+V12.7.4 Update:
+- Created hidden Learning Portal page at learning-portal.html.
+- Added hidden placeholder pages: register.html, ipledge.html, verify.html, exam.html, student.html.
+- Removed Learning Portal from footer to keep it hidden from main public navigation.
+
+
+V12.7.5 Update:
+- Created visible INNOVPH Academy page at academy.html.
+- Added Academy to main navigation and footer quick links.
+- Academy includes one-page side navigation with Programs anchors, Upcoming Public Programs, Explore Our Programs, Attendance Submission, Examination Center, Verify Certificate, Student Access, and Help & Support.
+- Preserved learning-portal.html as redirect to academy.html.
+
+
+V12.7.6 Update:
+- Removed INNOVPH Academy from main navigation.
+- Added thin utility bar: Academy • Verify Certificate • Student Access.
+- Main navigation returns to clean corporate layout.
+
+
+V12.7.8 Update:
+- Fixed Academy side navigation anchor scrolling.
+- Added scroll-padding and scroll-margin so sections are not hidden behind the sticky header.
+
+
+V12.7.9 Update:
+- Converted Academy service actions into dedicated pages: academy-attendance.html, academy-exam.html, academy-verify.html, academy-student.html, academy-support.html.
+- Academy page now focuses on Programs plus service entry cards.
+- Reordered Explore Our Programs with IBT first.
+
+
+V12.8.0 Update:
+- Removed icons from Academy sidebar.
+- Removed Submit Attendance CTA from Academy hero.
+- Refined sidebar typography for a more executive look.
+
+
+V12.8.1 Update:
+- Replaced all Academy page banners with the approved classroom learning image.
+- Used the no-website-text banner version to avoid duplicate/overlapping hero text.
+- Academy, Attendance, Exam, Verify Certificate, Student Access, and Support pages share the same Academy banner.
+
+
+V12.8.2 Update:
+- Connected Academy Upcoming Public Programs section to R2D2 Google Sheets JSON feed.
+- Website now displays only Active programs from the feed.
+- Added live rendering for poster, program type, title, schedule, delivery mode, regular fee, description, and CTA button.
+- Added empty and error states for program feed.
+
+
+V12.8.3 Update:
+- Removed development note from Upcoming Public Programs section.
+- Refined live program card layout to use formal details instead of pill chips.
+- Standardized Program Type display: Paid Program, Free Webinar, IPledge Program.
+- Reduced CTA button width for a more executive look.
