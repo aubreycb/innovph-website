@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12.4">
+<link rel="stylesheet" href="css/style.css?v=13.0.3">
 <title>Examination Center | INNOVPH Academy</title>
 <meta name="description" content="Access INNOVPH Academy examinations only during designated examination windows communicated by the facilitator.">
 
@@ -145,6 +145,539 @@
       min-height: 720px;
     }
   }
+
+  .exam-access-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 22px;
+  }
+
+  .exam-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+
+  .exam-field input,
+  .exam-field select {
+    width: 100%;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font: inherit;
+    color: #111827;
+    background: #ffffff;
+  }
+
+  .exam-field small {
+    display: block;
+    margin-top: 7px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+
+  .exam-field.full,
+  .exam-form-actions,
+  .exam-result-box {
+    grid-column: 1 / -1;
+  }
+
+  .exam-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .exam-result-box {
+    border-radius: 14px;
+    padding: 16px;
+    line-height: 1.7;
+    display: none;
+    white-space: pre-line;
+  }
+
+  .exam-result-box.is-visible { display: block; }
+  .exam-result-box.success { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
+  .exam-result-box.error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+  .exam-result-box.info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; }
+
+
+  .exam-confirmation-list {
+    margin: 12px 0 18px;
+    padding-left: 18px;
+  }
+
+  .exam-start-button {
+    margin-top: 18px;
+  }
+
+  .exam-session-panel {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 24px;
+  }
+
+  .exam-session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+  }
+
+  .exam-timer {
+    font-weight: 800;
+    color: #991b1b;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 10px 14px;
+    white-space: nowrap;
+  }
+
+  .exam-question-card {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 16px;
+    padding: 20px;
+    background: #f9fafb;
+  }
+
+  .exam-question-image {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 14px 0;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+  }
+
+  .exam-choice {
+    display: block;
+    margin: 10px 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    border-radius: 12px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .exam-choice input {
+    margin-right: 10px;
+  }
+
+  .exam-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 720px) {
+    .exam-access-form {
+      grid-template-columns: 1fr;
+    }
+    .exam-session-header {
+      display: block;
+    }
+    .exam-timer {
+      display: inline-block;
+      margin-top: 12px;
+    }
+  }
+
+  /* V12.8.19 Exam session readability fix */
+  .exam-session-panel,
+  .exam-session-panel p,
+  .exam-session-panel h2,
+  .exam-session-panel h3,
+  .exam-session-panel span,
+  .exam-question-card,
+  .exam-question-card p,
+  .exam-question-card h3,
+  .exam-choice,
+  .exam-choice strong,
+  .exam-navigation span {
+    color: #111827 !important;
+  }
+
+  .exam-session-panel .section-kicker {
+    color: #0d6efd !important;
+  }
+
+  .exam-choice {
+    color: #111827 !important;
+  }
+
+  .exam-choice input {
+    accent-color: #0d6efd;
+  }
+
+  .exam-navigation .btn.outline {
+    color: #0d6efd !important;
+    background: #ffffff !important;
+    border: 1px solid #0d6efd !important;
+  }
+
+
+
+  /* V12.8.20 Exam text rendering + mobile readability fix */
+  .exam-session-panel {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .exam-session-panel * {
+    color: #111827 !important;
+  }
+
+  .exam-session-panel .section-kicker {
+    color: #0d6efd !important;
+  }
+
+  .exam-question-card {
+    background: #f9fafb !important;
+    color: #111827 !important;
+  }
+
+  .exam-question-card h3,
+  .exam-question-card p,
+  .exam-question-card strong {
+    color: #111827 !important;
+  }
+
+  .exam-choice,
+  .exam-choice *,
+  .exam-choice span,
+  .exam-choice strong {
+    color: #111827 !important;
+  }
+
+  .exam-choice {
+    min-height: 52px;
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    color: #111827 !important;
+  }
+
+  .exam-choice input {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  .exam-choice-text {
+    color: #111827 !important;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 720px) {
+    .exam-question-card {
+      padding: 16px;
+    }
+
+    .exam-choice {
+      width: 100%;
+      padding: 14px 12px;
+      min-height: 56px;
+    }
+
+    .exam-navigation {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .exam-navigation .btn {
+      width: 100%;
+    }
+  }
+
+
+  /* V12.8.24 Exam confirmation, timer, autosave, and review panel enhancements */
+  .exam-confirmation-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 22px;
+    color: #111827 !important;
+  }
+
+  .exam-confirmation-card * { color: #111827 !important; }
+
+  .exam-confirmation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 10px 22px;
+    margin: 16px 0 22px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .exam-confirmation-grid strong {
+    display: block;
+    font-size: 12px;
+    color: #4b5563 !important;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 2px;
+  }
+
+  .exam-guidelines {
+    background: #f9fafb;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .exam-guidelines h3 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .exam-guidelines ul {
+    margin: 10px 0 0 18px;
+    padding: 0;
+  }
+
+  .exam-agreement {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .exam-agreement input {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+  }
+
+  .exam-start-button:disabled,
+  .exam-start-button[disabled] {
+    opacity: .45;
+    cursor: not-allowed;
+  }
+
+  .exam-status-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    margin-top: 12px;
+  }
+
+  .exam-save-status {
+    color: #4b5563 !important;
+    font-size: 13px;
+    background: #f9fafb;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 999px;
+    padding: 8px 12px;
+  }
+
+  .exam-review-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 20px;
+    padding: 14px;
+    background: #f9fafb;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+  }
+
+  .exam-review-button {
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    border-radius: 999px;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    background: #e5e7eb;
+    color: #374151 !important;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .exam-review-button.answered {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #166534 !important;
+  }
+
+  .exam-review-button.current {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+  }
+
+  .exam-timer strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #7f1d1d !important;
+    margin-bottom: 2px;
+  }
+
+  .exam-timer span {
+    color: #991b1b !important;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  @media (max-width: 720px) {
+    .exam-confirmation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .exam-session-header {
+      display: block;
+    }
+
+    .exam-status-row {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .exam-timer,
+    .exam-save-status {
+      width: 100%;
+      text-align: center;
+    }
+
+    .exam-review-panel {
+      justify-content: flex-start;
+    }
+
+    .exam-review-button {
+      min-width: 42px;
+      height: 42px;
+    }
+  }
+
+
+  /* V12.8.25 Exam submission and result page */
+  .exam-submit-review {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 22px;
+    color: #111827 !important;
+  }
+
+  .exam-submit-review * { color: #111827 !important; }
+
+  .exam-submit-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .exam-submit-note {
+    background: #f9fafb;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 14px;
+    color: #4b5563 !important;
+  }
+
+  .exam-result-page {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 24px;
+    color: #111827 !important;
+  }
+
+  .exam-result-page * { color: #111827 !important; }
+
+  .exam-result-banner {
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+
+  .exam-result-banner.pass {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+  }
+
+  .exam-result-banner.fail {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+
+  .exam-result-banner h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+
+  .exam-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 12px 22px;
+    margin-top: 16px;
+  }
+
+  .exam-result-grid div {
+    background: #f9fafb;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .exam-result-grid strong {
+    display: block;
+    color: #4b5563 !important;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: 720px) {
+    .exam-submit-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .exam-submit-actions .btn {
+      width: 100%;
+    }
+
+    .exam-result-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -156,6 +689,7 @@
     <button class="menu-toggle" aria-label="Open menu">☰</button>
     <nav class="main-nav">
       <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
       <a href="business-transformation.html">Business Transformation</a>
       <a href="training.html">Training</a>
       <a href="technology.html">Technology</a>
@@ -204,6 +738,7 @@
     <div>
       <h4>Quick Links</h4>
       <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
       <a href="business-transformation.html">Business Transformation</a>
       <a href="training.html">Training</a>
       <a href="technology.html">Technology</a>
@@ -228,19 +763,15 @@
 </footer>
 <script src="js/main.js"></script>
 <script>
-  // R2D2 will provide this endpoint once the Examination feed is ready.
-  // Expected JSON fields: programTitle, courseCode, trainingDate, schedule, examinationLink, examinationStatus, examDisplayMode, displayOrder.
-  const INNOVPH_EXAM_FEED = "";
+  const INNOVPH_EXAM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxP6xXk_wtzAqQEyEgLa1mK1TnYws39Bq7oqdPbhiqBpA-w-1CyFNTaqvTLuuP3wUnmJQ/exec";
 
-  const examNotice = `
-    <div class="exam-empty">
-      <div class="exam-note">
-        <strong>There are currently no examinations available.</strong>
-        <p>Examination access is opened only during designated periods communicated by the facilitator during the official session. The timing of examinations may vary based on program requirements and assessment instructions.</p>
-        <p>If your examination is scheduled for the current session, please wait for the facilitator's instructions before accessing the assessment.</p>
-      </div>
-    </div>
-  `;
+  let verifiedExamAccess = null;
+  let activeExam = null;
+  let currentQuestionIndex = 0;
+  let examAnswers = {};
+  let timerInterval = null;
+  let isSubmittingExam = false;
+  let autoSubmitHandled = false;
 
   const escapeHtml = (value) => String(value || "")
     .replace(/&/g, "&amp;")
@@ -249,96 +780,685 @@
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 
-  function hideExamEmbed() {
-    const embedContainer = document.getElementById("examEmbedContainer");
-    if (!embedContainer) return;
-    embedContainer.className = "exam-embed-wrap";
-    embedContainer.innerHTML = "";
-  }
-
-  function showEmbeddedExam(link, title) {
-    const embedContainer = document.getElementById("examEmbedContainer");
-    if (!embedContainer || !link) return;
-
-    embedContainer.className = "exam-embed-wrap is-visible";
-    embedContainer.innerHTML = `
-      <iframe src="${escapeHtml(link)}" title="${escapeHtml(title || 'INNOVPH Examination')}">Loading examination...</iframe>
-    `;
-    embedContainer.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function renderExamCard(session, index) {
-    const isOpen = String(session.examinationStatus || "").toLowerCase() === "open";
-    const mode = String(session.examDisplayMode || "external").toLowerCase();
-    const link = session.examinationLink || "";
-
-    let actionHtml = `<div class="exam-note">
-        <strong>There are currently no examinations available.</strong>
-        <p>Examination access is opened only during designated periods communicated by the facilitator during the official session. The timing of examinations may vary based on program requirements and assessment instructions.</p>
-        <p>If your examination is scheduled for the current session, please wait for the facilitator's instructions before accessing the assessment.</p>
-      </div>`;
-
-    if (isOpen && link) {
-      if (mode === "embed" || mode === "embedded") {
-        actionHtml = `<div class="exam-actions"><button class="btn primary" type="button" data-exam-embed="${escapeHtml(link)}" data-exam-title="${escapeHtml(session.programTitle)}">Start Examination</button></div>`;
-      } else {
-        actionHtml = `<div class="exam-actions"><a class="btn primary" href="${escapeHtml(link)}" target="_blank" rel="noopener">Start Examination</a></div>`;
-      }
+  async function examApi(action, payload = {}) {
+    if (!INNOVPH_EXAM_WEB_APP_URL || INNOVPH_EXAM_WEB_APP_URL.includes("PASTE_")) {
+      throw new Error("Exam Portal Backend URL is not yet configured.");
     }
 
-    return `
-      <article class="exam-card">
-        <h3>${escapeHtml(session.programTitle)}</h3>
-        <div class="exam-meta">
-          <div><strong>Course Code:</strong> ${escapeHtml(session.courseCode)}</div>
-          <div><strong>Training Date:</strong> ${escapeHtml(session.trainingDate)}</div>
-          ${session.schedule ? `<div><strong>Schedule:</strong> ${escapeHtml(session.schedule)}</div>` : ""}
-        </div>
-        ${actionHtml}
-      </article>
-    `;
+    const response = await fetch(INNOVPH_EXAM_WEB_APP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action, ...payload })
+    });
+
+    if (!response.ok) throw new Error("Unable to connect to the Exam Portal Backend.");
+    return response.json();
   }
 
-  async function loadExaminationSessions() {
+  function renderExamAccessForm() {
     const container = document.getElementById("examContent");
     if (!container) return;
 
-    hideExamEmbed();
+    container.className = "";
+    container.innerHTML = `
+      <form id="examAccessForm" class="exam-access-form">
+        <div class="exam-field full">
+          <label for="examCourse">Course</label>
+          <select id="examCourse" required>
+            <option value="">Loading available examinations...</option>
+          </select>
+          <small>Only examinations currently available within the official examination window will appear.</small>
+        </div>
 
-    if (!INNOVPH_EXAM_FEED) {
-      container.className = "";
-      container.innerHTML = examNotice;
-      return;
-    }
+        <div class="exam-field">
+          <label for="examCourseCode">Course Code</label>
+          <input id="examCourseCode" type="text" readonly placeholder="Auto-filled from selected course">
+        </div>
+
+        <div class="exam-field">
+          <label for="examTrainingDate">Training Date</label>
+          <input id="examTrainingDate" type="date" required>
+          <small>Select the first day of your training.</small>
+        </div>
+
+        <div class="exam-field full">
+          <label for="examEmail">Personal Email Address</label>
+          <input id="examEmail" type="email" required placeholder="Use the same personal email address used during registration">
+        </div>
+
+        <div class="exam-form-actions">
+          <button class="btn primary" type="submit">Verify Exam Access</button>
+          <span id="examLoading" class="exam-loading" style="display:none;">Verifying...</span>
+        </div>
+
+        <div id="examResult" class="exam-result-box" aria-live="polite"></div>
+      </form>
+    `;
+
+    document.getElementById("examCourse").addEventListener("change", function() {
+      const selected = this.options[this.selectedIndex];
+      document.getElementById("examCourseCode").value = selected.dataset.courseCode || "";
+    });
+
+    document.getElementById("examAccessForm").addEventListener("submit", validateExamAccessFromForm);
+    loadAvailableCourses();
+  }
+
+  function showExamResult(type, message) {
+    const box = document.getElementById("examResult");
+    if (!box) return;
+    box.className = `exam-result-box is-visible ${type}`;
+    box.innerHTML = escapeHtml(message);
+  }
+
+  function showExamHtmlResult(type, html) {
+    const box = document.getElementById("examResult");
+    if (!box) return;
+    box.className = `exam-result-box is-visible ${type}`;
+    box.innerHTML = html;
+  }
+
+  async function loadAvailableCourses() {
+    const dropdown = document.getElementById("examCourse");
+    if (!dropdown) return;
 
     try {
-      const response = await fetch(INNOVPH_EXAM_FEED, { cache: "no-store" });
-      if (!response.ok) throw new Error("Examination feed unavailable");
+      const courses = await examApi("getAvailableCourses");
+      dropdown.innerHTML = `<option value="">Select course</option>`;
 
-      const sessions = await response.json();
-      const visibleSessions = Array.isArray(sessions) ? sessions : [];
-
-      if (!visibleSessions.length) {
-        container.className = "";
-        container.innerHTML = examNotice;
+      if (!Array.isArray(courses) || courses.length === 0) {
+        dropdown.innerHTML = `<option value="">No examinations are currently available</option>`;
+        showExamResult("info", "There are currently no examinations available. Please check the INNOVPH Academy Portal again during the official examination period.");
         return;
       }
 
-      container.className = "exam-grid";
-      container.innerHTML = visibleSessions.map(renderExamCard).join("");
+      courses.forEach(course => {
+        const option = document.createElement("option");
+        option.value = course.courseTitle;
+        option.textContent = course.courseTitle;
+        option.dataset.courseCode = course.courseCode;
+        dropdown.appendChild(option);
+      });
     } catch (error) {
-      container.className = "";
-      container.innerHTML = examNotice;
+      dropdown.innerHTML = `<option value="">Unable to load available examinations</option>`;
+      showExamResult("error", error.message || "Unable to load available examinations.");
     }
   }
 
-  document.addEventListener("click", function(event) {
-    const target = event.target.closest("[data-exam-embed]");
-    if (!target) return;
-    showEmbeddedExam(target.getAttribute("data-exam-embed"), target.getAttribute("data-exam-title"));
+  async function validateExamAccessFromForm(event) {
+    event.preventDefault();
+
+    const courseSelect = document.getElementById("examCourse");
+    const selectedCourseTitle = courseSelect.options[courseSelect.selectedIndex]?.textContent || "";
+    const courseCode = document.getElementById("examCourseCode").value.trim();
+    const email = document.getElementById("examEmail").value.trim();
+    const trainingDate = document.getElementById("examTrainingDate").value;
+    const loading = document.getElementById("examLoading");
+
+    if (!courseCode || !email || !trainingDate) {
+      showExamResult("error", "Please complete all required fields before proceeding.");
+      return;
+    }
+
+    loading.style.display = "inline";
+
+    try {
+      const result = await examApi("validateExamAccess", {
+        courseCode,
+        personalEmail: email,
+        trainingDate
+      });
+
+      // Treat any ALLOWED response as successful, regardless of code.
+      // Supported codes include OK and OK_ACTIVE_SESSION.
+      if (result.status === "ALLOWED") {
+        verifiedExamAccess = {
+          ...result,
+          courseTitle: selectedCourseTitle,
+          personalEmail: email,
+          trainingDateInput: trainingDate
+        };
+        showExamHtmlResult("success", renderEligibilityConfirmation(verifiedExamAccess));
+        bindExamConfirmationControls();
+      } else {
+        verifiedExamAccess = null;
+        showExamResult("error", result.message || "Exam access denied.");
+      }
+    } catch (error) {
+      verifiedExamAccess = null;
+      showExamResult("error", error.message || "Unable to verify exam access.");
+    } finally {
+      loading.style.display = "none";
+    }
+  }
+
+  function renderEligibilityConfirmation(result) {
+    const maxAttempts = Number(result.maxAttempts || 0);
+    const attemptsUsed = Number(result.attemptsUsed || 0);
+    const attemptsRemaining = result.attemptsRemaining !== undefined
+      ? Number(result.attemptsRemaining)
+      : Math.max(maxAttempts - attemptsUsed, 0);
+    const isResume = result.hasActiveSession === true || result.code === "OK_ACTIVE_SESSION";
+    const buttonText = isResume ? "Resume Examination" : "Start Examination";
+
+    return `
+      <div class="exam-confirmation-card">
+        <strong>${isResume ? "Active examination session found." : "You are eligible to take this examination."}</strong>
+        <div class="exam-confirmation-grid">
+          <div><strong>Participant Name</strong>${escapeHtml(result.fullName || result.participantName || "")}</div>
+          <div><strong>Course</strong>${escapeHtml(result.courseTitle || result.courseCode || "")}</div>
+          <div><strong>Training Date</strong>${escapeHtml(result.trainingDate || result.trainingDateInput || "")}</div>
+          <div><strong>Passing Score</strong>${escapeHtml(result.passingScore || "")}%</div>
+          <div><strong>Time Limit</strong>${escapeHtml(result.timeLimitMinutes || "")} minutes</div>
+          <div><strong>Number of Questions</strong>${escapeHtml(result.numberOfQuestions || result.totalQuestions || result.questionCount || "")}</div>
+          <div><strong>Maximum Attempts</strong>${escapeHtml(maxAttempts || "")}</div>
+          <div><strong>Attempts Used</strong>${escapeHtml(attemptsUsed)}</div>
+          <div><strong>Attempts Remaining</strong>${escapeHtml(attemptsRemaining)}</div>
+          <div><strong>Examination Available Until</strong>${escapeHtml(result.examAvailableUntil || "")}</div>
+          <div><strong>Auto-Save</strong>Enabled</div>
+        </div>
+
+        <div class="exam-guidelines">
+          <h3>Important Examination Guidelines</h3>
+          <p>• Once you click <strong>${buttonText}</strong>, your examination timer will begin immediately and will continue running until the allotted time expires.</p>
+          <p>• Your answers are automatically saved while an internet connection is available.</p>
+          <p>• If your browser is refreshed, closed, or your internet connection is interrupted, you may resume the same examination session, provided there is still remaining time.</p>
+          <p>• Please ensure that you have:</p>
+          <ul>
+            <li>A stable internet connection</li>
+            <li>A reliable computer or mobile device</li>
+            <li>Sufficient battery power or access to a power source</li>
+            <li>A quiet environment free from interruptions</li>
+          </ul>
+          <p>• When the examination time expires, the session will automatically end. No additional time will be granted due to browser refresh, internet interruption, browser closure, device restart, or power outage.</p>
+          <p>• Requests for additional examination attempts due to exceptional circumstances are subject to review and approval by INNOVPH and are <strong>not automatically granted</strong>.</p>
+        </div>
+
+        <label class="exam-agreement" for="examGuidelinesAgreement">
+          <input id="examGuidelinesAgreement" type="checkbox">
+          <span>I have read and understood the examination guidelines and agree to proceed.</span>
+        </label>
+
+        <button id="startExamButton" type="button" class="btn primary exam-start-button" disabled>${buttonText}</button>
+      </div>
+    `;
+  }
+
+  function bindExamConfirmationControls() {
+    const startButton = document.getElementById("startExamButton");
+    const agreement = document.getElementById("examGuidelinesAgreement");
+    if (!startButton || !agreement) return;
+
+    agreement.addEventListener("change", function() {
+      startButton.disabled = !this.checked;
+    });
+
+    startButton.addEventListener("click", startExamFromConfirmation);
+  }
+
+  async function startExamFromConfirmation() {
+    if (!verifiedExamAccess) {
+      showExamResult("error", "Please verify your exam access before starting.");
+      return;
+    }
+
+    const startButton = document.getElementById("startExamButton");
+    if (startButton) {
+      startButton.disabled = true;
+      startButton.textContent = verifiedExamAccess.code === "OK_ACTIVE_SESSION" ? "Resuming Examination..." : "Starting Examination...";
+    }
+
+    try {
+      const result = await examApi("startExam", {
+        courseCode: verifiedExamAccess.courseCode,
+        personalEmail: verifiedExamAccess.personalEmail,
+        trainingDate: verifiedExamAccess.trainingDateInput || verifiedExamAccess.trainingDate
+      });
+
+      if (result.status !== "STARTED" && result.status !== "RESUMED") {
+        showExamResult("error", result.message || "Unable to start the examination.");
+        if (startButton) {
+          startButton.disabled = false;
+          startButton.textContent = verifiedExamAccess.code === "OK_ACTIVE_SESSION" ? "Resume Examination" : "Start Examination";
+        }
+        return;
+      }
+
+      activeExam = result;
+      currentQuestionIndex = 0;
+      examAnswers = restoreSavedExamAnswers(result);
+      renderExamSession();
+      startCountdownTimer();
+    } catch (error) {
+      showExamResult("error", error.message || "Unable to start the examination.");
+      if (startButton) {
+        startButton.disabled = false;
+        startButton.textContent = "Start Examination";
+      }
+    }
+  }
+
+  function renderExamSession() {
+    const container = document.getElementById("examContent");
+    if (!container || !activeExam) return;
+
+    container.innerHTML = `
+      <div class="exam-session-panel">
+        <div class="exam-session-header">
+          <div>
+            <p class="section-kicker">Examination In Progress</p>
+            <h2 class="bt-section-title">${escapeHtml(activeExam.courseCode)} Examination</h2>
+            <p>Attempt ${escapeHtml(activeExam.attemptNumber)} | Passing Score: ${escapeHtml(activeExam.passingScore)}%</p>
+          </div>
+          <div class="exam-status-row">
+            <div id="examTimer" class="exam-timer"><strong>Time Remaining</strong><span>--:--</span></div>
+            <div id="examSaveStatus" class="exam-save-status" aria-live="polite">Auto-save: Enabled</div>
+          </div>
+        </div>
+        <div id="examReviewPanel" class="exam-review-panel" aria-label="Question review panel"></div>
+        <div id="examQuestionArea"></div>
+      </div>
+    `;
+
+    if (activeExam.status === "RESUMED") {
+      const firstUnanswered = findFirstUnansweredQuestion_();
+      currentQuestionIndex = firstUnanswered >= 0 ? firstUnanswered : 0;
+    }
+
+    renderReviewPanel();
+    renderCurrentQuestion();
+  }
+
+
+  function normalizeExamQuestion(q) {
+    q = q || {};
+    return {
+      questionId: q.questionId || q["questionId"] || q["Question ID"] || q.id || "",
+      question: q.question || q["question"] || q["Question"] || q.questionText || q["Question Text"] || "",
+      imageUrl: q.imageUrl || q["imageUrl"] || q["Image URL"] || q.image || "",
+      optionA: q.optionA || q["optionA"] || q["Option A"] || q.A || "",
+      optionB: q.optionB || q["optionB"] || q["Option B"] || q.B || "",
+      optionC: q.optionC || q["optionC"] || q["Option C"] || q.C || "",
+      optionD: q.optionD || q["optionD"] || q["Option D"] || q.D || "",
+      participantAnswer: normalizeAnswerLetter_(q.participantAnswer || q["participantAnswer"] || q["Participant Answer"] || q.answer || q["Answer"] || ""),
+      points: q.points || q["Points"] || "",
+      difficulty: q.difficulty || q["Difficulty"] || ""
+    };
+  }
+
+  function normalizeAnswerLetter_(value) {
+    const answer = String(value || "").trim().toUpperCase();
+    return ["A", "B", "C", "D"].includes(answer) ? answer : "";
+  }
+
+  function restoreSavedExamAnswers(examResult) {
+    const restored = {};
+    if (!examResult || !Array.isArray(examResult.questions)) return restored;
+
+    examResult.questions.forEach(question => {
+      const q = normalizeExamQuestion(question);
+      if (q.questionId && q.participantAnswer) {
+        restored[q.questionId] = q.participantAnswer;
+      }
+    });
+
+    if (examResult.savedAnswers && typeof examResult.savedAnswers === "object") {
+      Object.keys(examResult.savedAnswers).forEach(questionId => {
+        const saved = normalizeAnswerLetter_(examResult.savedAnswers[questionId]);
+        if (questionId && saved) restored[questionId] = saved;
+      });
+    }
+
+    return restored;
+  }
+
+
+  function findFirstUnansweredQuestion_() {
+    if (!activeExam || !Array.isArray(activeExam.questions)) return -1;
+    for (let i = 0; i < activeExam.questions.length; i++) {
+      const q = normalizeExamQuestion(activeExam.questions[i]);
+      if (!normalizeAnswerLetter_(examAnswers[q.questionId])) return i;
+    }
+    return -1;
+  }
+
+  function renderReviewPanel() {
+    const panel = document.getElementById("examReviewPanel");
+    if (!panel || !activeExam || !Array.isArray(activeExam.questions)) return;
+
+    panel.innerHTML = activeExam.questions.map((question, index) => {
+      const q = normalizeExamQuestion(question);
+      const answered = Boolean(normalizeAnswerLetter_(examAnswers[q.questionId]));
+      const current = index === currentQuestionIndex;
+      const label = `${answered ? "✓ " : ""}${index + 1}`;
+      return `<button type="button" class="exam-review-button ${answered ? "answered" : ""} ${current ? "current" : ""}" data-index="${index}" aria-label="Go to question ${index + 1}${answered ? ", answered" : ", unanswered"}">${label}</button>`;
+    }).join("");
+
+    panel.querySelectorAll(".exam-review-button").forEach(button => {
+      button.addEventListener("click", function() {
+        currentQuestionIndex = Number(this.dataset.index);
+        renderCurrentQuestion();
+      });
+    });
+  }
+
+  function updateAutoSaveStatus_(message, statusClass = "") {
+    const saveStatus = document.getElementById("examSaveStatus");
+    if (!saveStatus) return;
+    saveStatus.className = `exam-save-status ${statusClass}`.trim();
+    saveStatus.textContent = message;
+  }
+
+  function formatLocalTime_(date) {
+    return date.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  }
+
+  function renderCurrentQuestion() {
+    const area = document.getElementById("examQuestionArea");
+    if (!area || !activeExam || !Array.isArray(activeExam.questions)) return;
+
+    const q = normalizeExamQuestion(activeExam.questions[currentQuestionIndex]);
+    const total = activeExam.questions.length;
+    const selected = examAnswers[q.questionId] || "";
+
+    area.innerHTML = `
+      <div class="exam-question-card">
+        <p><strong>Question ${currentQuestionIndex + 1} of ${total}</strong></p>
+        <h3>${escapeHtml(q.question)}</h3>
+        ${q.imageUrl ? `<img class="exam-question-image" src="${escapeHtml(q.imageUrl)}" alt="Question image">` : ""}
+        ${renderChoice(q, "A", q.optionA, selected)}
+        ${renderChoice(q, "B", q.optionB, selected)}
+        ${renderChoice(q, "C", q.optionC, selected)}
+        ${renderChoice(q, "D", q.optionD, selected)}
+      </div>
+
+      <div class="exam-navigation">
+        <button type="button" class="btn outline" id="prevQuestionButton" ${currentQuestionIndex === 0 ? "disabled" : ""}>Previous</button>
+        <span>${currentQuestionIndex + 1} / ${total} · ${getAnsweredCount_()} answered</span>
+        <button type="button" class="btn primary" id="nextQuestionButton">${currentQuestionIndex === total - 1 ? "Review" : "Next"}</button>
+      </div>
+    `;
+
+    area.querySelectorAll('input[name="examChoice"]').forEach(input => {
+      input.addEventListener("change", async function() {
+        examAnswers[q.questionId] = this.value;
+        renderReviewPanel();
+        await saveCurrentAnswer(currentQuestionIndex + 1, this.value);
+      });
+    });
+
+    document.getElementById("prevQuestionButton").addEventListener("click", function() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderReviewPanel();
+        renderCurrentQuestion();
+      }
+    });
+
+    document.getElementById("nextQuestionButton").addEventListener("click", function() {
+      if (currentQuestionIndex < total - 1) {
+        currentQuestionIndex++;
+        renderReviewPanel();
+        renderCurrentQuestion();
+      } else {
+        renderExamReviewScreen();
+      }
+    });
+  }
+
+  function getAnsweredCount_() {
+    return Object.values(examAnswers || {}).filter(value => normalizeAnswerLetter_(value)).length;
+  }
+
+  function renderChoice(q, letter, text, selected) {
+    return `
+      <label class="exam-choice">
+        <input type="radio" name="examChoice" value="${letter}" ${selected === letter ? "checked" : ""}>
+        <span class="exam-choice-text"><strong>${letter}.</strong> ${escapeHtml(text || "")}</span>
+      </label>
+    `;
+  }
+
+
+  function renderExamReviewScreen() {
+    const area = document.getElementById("examQuestionArea");
+    if (!area || !activeExam || !Array.isArray(activeExam.questions)) return;
+
+    const total = activeExam.questions.length;
+    const answered = getAnsweredCount_();
+    renderReviewPanel();
+
+    area.innerHTML = `
+      <div class="exam-submit-review">
+        <p class="section-kicker">Review Examination</p>
+        <h2 class="bt-section-title">Review your answers before submission.</h2>
+        <p>You have answered <strong>${answered}</strong> of <strong>${total}</strong> questions.</p>
+        <div class="exam-submit-note">
+          Once you submit the examination, your answers will be recorded and the examination can no longer be changed.
+        </div>
+        <div class="exam-submit-actions">
+          <button type="button" class="btn outline" id="returnToQuestionsButton">Return to Questions</button>
+          <button type="button" class="btn primary" id="submitExamButton">Submit Examination</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("returnToQuestionsButton").addEventListener("click", function() {
+      currentQuestionIndex = Math.min(currentQuestionIndex, total - 1);
+      renderReviewPanel();
+      renderCurrentQuestion();
+    });
+
+    document.getElementById("submitExamButton").addEventListener("click", function() {
+      submitExam(false);
+    });
+  }
+
+  async function submitExam(isAutoSubmit) {
+    if (!activeExam || !activeExam.sessionId) {
+      updateAutoSaveStatus_("Submit unavailable — missing exam session.");
+      return;
+    }
+
+    if (isSubmittingExam) return;
+    isSubmittingExam = true;
+
+    const submitButton = document.getElementById("submitExamButton");
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = isAutoSubmit ? "Submitting automatically..." : "Submitting...";
+    }
+
+    updateAutoSaveStatus_(isAutoSubmit ? "Time expired. Submitting examination..." : "Submitting examination...");
+
+    try {
+      const result = await examApi("submitExam", {
+        sessionId: activeExam.sessionId
+      });
+
+      if (result.status === "SUBMITTED") {
+        if (timerInterval) clearInterval(timerInterval);
+        renderExamResultPage(result);
+        return;
+      }
+
+      isSubmittingExam = false;
+      updateAutoSaveStatus_(result.message ? `Submit: ${result.message}` : "Submit: Examination was not submitted.");
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Examination";
+      }
+    } catch (error) {
+      isSubmittingExam = false;
+      updateAutoSaveStatus_(error.message ? `Submit: ${error.message}` : "Submit: Unable to submit examination.");
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Examination";
+      }
+    }
+  }
+
+  function renderExamResultPage(result) {
+    const container = document.getElementById("examContent");
+    if (!container) return;
+
+    const examResult = String(result.result || result.examResult || "").trim().toUpperCase();
+    const isPass = examResult === "PASS" || examResult === "PASSED";
+    const displayResult = isPass ? "PASS" : (examResult || "FAIL");
+
+    const score = result.score ?? result.totalScore ?? result.pointsEarned ?? "";
+    const totalPoints = result.totalPoints ?? result.maxPoints ?? "";
+    const percentage = result.percentage ?? result.percentScore ?? "";
+    const passingScore = result.passingScore ?? activeExam?.passingScore ?? "";
+    const timeSubmitted = result.timeSubmitted ?? result.submittedAt ?? "";
+    const durationMinutes = result.durationMinutes ?? result.duration ?? "";
+
+    container.innerHTML = `
+      <div class="exam-result-page">
+        <div class="exam-result-banner ${isPass ? "pass" : "fail"}">
+          <h2>${isPass ? "Examination Passed" : "Examination Not Passed"}</h2>
+          <p>${isPass
+            ? "Congratulations. You have passed the examination. Your certificate is ready for generation. Please allow 24 to 48 hours for processing and availability."
+            : "You did not meet the required passing score for this examination. Your result has been recorded."}</p>
+          ${isPass ? `<p><strong>Note:</strong> This applies to exam-based certificates only. Certified titles may require additional requirements before certification is issued.</p>` : ""}
+        </div>
+
+        <div class="exam-result-grid">
+          <div><strong>Result</strong>${escapeHtml(displayResult)}</div>
+          <div><strong>Score</strong>${escapeHtml(score)}</div>
+          <div><strong>Total Points</strong>${escapeHtml(totalPoints)}</div>
+          <div><strong>Percentage</strong>${escapeHtml(formatPercentage_(percentage))}</div>
+          <div><strong>Passing Score</strong>${escapeHtml(formatPercentage_(passingScore))}</div>
+          <div><strong>Time Submitted</strong>${escapeHtml(timeSubmitted)}</div>
+          <div><strong>Duration Minutes</strong>${escapeHtml(durationMinutes)}</div>
+        </div>
+      </div>
+    `;
+
+    activeExam = null;
+  }
+
+  function formatPercentage_(value) {
+    if (value === undefined || value === null || value === "") return "";
+    const text = String(value).trim();
+    return text.includes("%") ? text : `${text}%`;
+  }
+
+  async function saveCurrentAnswer(questionNumber, answer) {
+    if (!activeExam || !activeExam.sessionId) {
+      updateAutoSaveStatus_("Auto-save: Unable to save — missing exam session.");
+      return;
+    }
+
+    if (!navigator.onLine) {
+      updateAutoSaveStatus_("Auto-save: Offline (changes will save when connection resumes)");
+      return;
+    }
+
+    updateAutoSaveStatus_("Auto-save: Saving...");
+
+    try {
+      const result = await examApi("saveAnswer", {
+        sessionId: activeExam.sessionId,
+        questionNumber: questionNumber,
+        answer: answer
+      });
+
+      if (result.status === "SAVED") {
+        const savedAt = result.lastSaved || formatLocalTime_(new Date());
+        updateAutoSaveStatus_(`Auto-save: Saved ${savedAt}`);
+      } else {
+        updateAutoSaveStatus_(result.message ? `Auto-save: ${result.message}` : "Auto-save: Answer was not saved.");
+      }
+    } catch (error) {
+      if (!navigator.onLine) {
+        updateAutoSaveStatus_("Auto-save: Offline (changes will save when connection resumes)");
+      } else {
+        updateAutoSaveStatus_(error.message ? `Auto-save: ${error.message}` : "Auto-save: Unable to save answer.");
+      }
+    }
+  }
+
+  function startCountdownTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+
+    const startedAt = getExamStartedAtMs_(activeExam);
+    const durationMs = Number(activeExam.timeLimitMinutes || 0) * 60 * 1000;
+    const endAt = startedAt + durationMs;
+
+    const renderTimer = () => {
+      const remaining = endAt - Date.now();
+      const timer = document.getElementById("examTimer");
+      if (!timer) return;
+
+      if (remaining <= 0) {
+        clearInterval(timerInterval);
+        timer.innerHTML = "<strong>Time Remaining</strong><span>00:00</span>";
+        if (!autoSubmitHandled) {
+          autoSubmitHandled = true;
+          submitExam(true);
+        }
+        return;
+      }
+
+      const minutes = Math.floor(remaining / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
+      timer.innerHTML = `<strong>Time Remaining</strong><span>${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}</span>`;
+    };
+
+    renderTimer();
+    timerInterval = setInterval(renderTimer, 1000);
+  }
+
+  function getExamStartedAtMs_(exam) {
+    if (!exam) return Date.now();
+
+    if (exam.timeStartedMs) return Number(exam.timeStartedMs);
+    if (exam.timeStartedTimestamp) return Number(exam.timeStartedTimestamp);
+    if (exam.timeStartedIso) {
+      const parsedIso = Date.parse(exam.timeStartedIso);
+      if (!Number.isNaN(parsedIso)) return parsedIso;
+    }
+
+    if (exam.timeStarted) {
+      const parsed = parseExamDateTime_(exam.timeStarted);
+      if (!Number.isNaN(parsed)) return parsed;
+    }
+
+    return Date.now();
+  }
+
+  function parseExamDateTime_(value) {
+    const text = String(value || "").trim();
+    const direct = Date.parse(text);
+    if (!Number.isNaN(direct)) return direct;
+
+    const match = text.match(/^([A-Za-z]{3})-(\d{1,2})-(\d{4})\s+(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if (!match) return NaN;
+
+    const months = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+    const month = months[match[1].toLowerCase()];
+    const day = Number(match[2]);
+    const year = Number(match[3]);
+    let hour = Number(match[4]);
+    const minute = Number(match[5]);
+    const period = match[6].toUpperCase();
+
+    if (period === "PM" && hour !== 12) hour += 12;
+    if (period === "AM" && hour === 12) hour = 0;
+
+    return new Date(year, month, day, hour, minute, 0).getTime();
+  }
+
+  window.addEventListener("offline", function() {
+    if (activeExam) updateAutoSaveStatus_("Auto-save: Offline (changes will save when connection resumes)");
   });
 
-  document.addEventListener("DOMContentLoaded", loadExaminationSessions);
+  window.addEventListener("online", function() {
+    if (activeExam) updateAutoSaveStatus_("Auto-save: Online");
+  });
+
+  document.addEventListener("DOMContentLoaded", renderExamAccessForm);
 </script>
 </body>
 </html>

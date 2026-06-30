@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=13.0.3">
-<title>INNOVPH | Transforming Ideas Into Measurable Results</title>
-<meta name="description" content="INNOVPH helps organizations improve performance through business transformation, process excellence, governance, technology enablement, and intelligent automation.">
-
-<title>Paid Training Enrollment | INNOVPH</title>
-<meta name="description" content="For paid training programs, certification courses, and professional development offerings.">
+<title>INNOVPH Article | Insights</title>
+<meta name="description" content="Read an INNOVPH Insight article.">
 </head>
 <body>
 <div class="academy-utility-bar">
@@ -45,26 +41,34 @@
     <a href="contact.html" class="nav-cta">Request Consultation</a>
   </div>
 </header>
+
 <main>
-  <section class="page-hero learning-portal-hero">
-    <div class="page-hero-overlay"></div>
-    <div class="container page-hero-content">
-      <p class="eyebrow">Paid Enrollment</p>
-      <h1>PAID Training & Certification Enrollment</h1>
-      <p class="lead">For paid training programs, certification courses, and professional development offerings.</p>
-      <div class="button-row">
-        <a href="contact.html" class="btn primary">Contact INNOVPH</a>
+
+  <section class="article-reader-section">
+    <div class="container article-reader-wrap" id="articleReader">
+      <div class="article-reader-loading">
+        <p class="section-kicker">INNOVPH Insights</p>
+        <h1>Loading article...</h1>
+        <p>Please wait while the article is being retrieved.</p>
       </div>
     </div>
   </section>
-  <section class="portal-section">
-    <div class="container tech-statement">
-      <p class="section-kicker">Page Setup</p>
-      <h2>This page is ready for integration.</h2>
-      <p>The backend form, Google Sheet, Apps Script, or portal logic can be connected here when the workflow is finalized.</p>
-    </div>
-  </section>
+
 </main>
+
+
+<section class="subscribe-section">
+  <div class="container subscribe-wrap">
+    <h2>Stay Connected with INNOVPH</h2>
+    <p>Receive practical insights, free learning opportunities, scholarship announcements, and updates on business transformation, process excellence, analytics, AI, and upcoming training programs.</p>
+    <form class="subscribe-form" id="subscribeForm">
+      <input type="email" id="subscriberEmail" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p id="subscribeMessage" class="subscribe-message"></p>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container footer-grid">
     <div>
@@ -98,6 +102,7 @@
     <p>© 2026 INNOVPH. All rights reserved.</p>
   </div>
 </footer>
+<script src="js/insights.js?v=13.0.3"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

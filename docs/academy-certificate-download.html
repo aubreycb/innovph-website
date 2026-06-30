@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=13.0.3">
+<title>INNOVPH | Transforming Ideas Into Measurable Results</title>
+<meta name="description" content="INNOVPH helps organizations improve performance through business transformation, process excellence, governance, technology enablement, and intelligent automation.">
+
+<title>INNOVPH Academy | Learning, Certification, Attendance and Verification</title>
+<meta name="description" content="INNOVPH Academy is the gateway for public programs, course outlines, attendance submission, examinations, certificate verification, student access, and learner support.">
+
+<title>Certificate Download | INNOVPH Academy</title>
+<meta name="description" content="Download your INNOVPH-issued certificate after successful completion of all program requirements.">
+
+
+<style>
+.certificate-download-card {
+  border: 1px solid rgba(17,24,39,.10);
+  background: #fff;
+  border-radius: 18px;
+  padding: 34px;
+  box-shadow: 0 18px 45px rgba(17,24,39,.06);
+}
+.certificate-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 14px;
+  align-items: end;
+  margin-top: 24px;
+}
+.certificate-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #374151;
+  margin-bottom: 8px;
+}
+.certificate-form input {
+  width: 100%;
+  border: 1px solid rgba(17,24,39,.16);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+}
+.certificate-form input:focus {
+  outline: none;
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17,24,39,.08);
+}
+.certificate-form .btn {
+  white-space: nowrap;
+  min-height: 47px;
+}
+.certificate-result-area {
+  margin-top: 26px;
+}
+.certificate-message {
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 14px;
+  padding: 18px;
+  background: #fafafa;
+  color: #374151;
+  line-height: 1.7;
+  font-size: 14px;
+}
+.certificate-message strong {
+  display: block;
+  color: #111827;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.certificate-message p,
+.certificate-message li,
+.certificate-message span {
+  color: #374151 !important;
+}
+.certificate-message ul {
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+.certificate-message.processing {
+  background: #fff8e6;
+  border-color: #f2c46d;
+  color: #1f2937;
+}
+.certificate-message.processing strong {
+  color: #111827 !important;
+}
+.certificate-message.processing p,
+.certificate-message.processing li,
+.certificate-message.processing span {
+  color: #374151 !important;
+}
+.certificate-message.available {
+  background: #ecfdf5;
+  border-color: rgba(22,163,74,.28);
+  color: #14532d;
+}
+.certificate-message.available strong,
+.certificate-message.available p {
+  color: #14532d !important;
+}
+.certificate-message.not-found {
+  background: #fef2f2;
+  border-color: rgba(185,28,28,.20);
+}
+.certificate-message.not-found strong,
+.certificate-message.not-found p,
+.certificate-message.not-found li {
+  color: #7f1d1d !important;
+}
+.certificate-message.error {
+  background: #fef2f2;
+  border-color: rgba(185,28,28,.20);
+}
+.certificate-message.error strong,
+.certificate-message.error p {
+  color: #7f1d1d !important;
+}
+.certificate-record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0 18px;
+}
+.certificate-record-card {
+  border: 1px solid rgba(17,24,39,.10);
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 18px;
+}
+.certificate-record-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #111827;
+}
+.certificate-field {
+  border-bottom: 1px solid rgba(17,24,39,.08);
+  padding: 10px 0;
+}
+.certificate-field span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.certificate-field strong {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+.certificate-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+.loading-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #111827;
+  animation: pulseDot 1s infinite ease-in-out;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: .25; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@media (max-width: 1024px) {
+  .certificate-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .certificate-form .btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+@media (max-width: 680px) {
+  .certificate-download-card {
+    padding: 24px;
+  }
+  .certificate-form,
+  .certificate-record-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo">
+    </a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Request Consultation</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero academy-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow">INNOVPH Academy</p>
+      <h1>Certificate Download</h1>
+      <p class="lead">Download your INNOVPH-issued certificate after successful completion of all program requirements.</p>
+      <div class="button-row"><a href="academy.html" class="btn outline">Back to Academy</a><a href="academy-verify.html" class="btn outline">Verify Certificate</a></div>
+    </div>
+  </section>
+
+  <section class="academy-section academy-main">
+    <div class="container">
+      <div class="academy-panel dedicated-panel certificate-download-card">
+        <p class="section-kicker">Certificate Download</p>
+        <h2 class="bt-section-title">Access your issued certificate.</h2>
+        <p class="bt-intro">Enter the same personal email address, course code, and training date used in your INNOVPH Academy records.</p>
+
+        <form id="certificateDownloadForm" class="certificate-form">
+          <div>
+            <label for="personalEmail">Personal Email Address</label>
+            <input type="email" id="personalEmail" name="personalEmail" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="courseCode">Course Code</label>
+            <input type="text" id="courseCode" name="courseCode" autocomplete="off" required>
+          </div>
+          <div>
+            <label for="trainingDate">Training Date</label>
+            <input type="date" id="trainingDate" name="trainingDate" required>
+          </div>
+          <button type="submit" class="btn primary">Download Certificate</button>
+        </form>
+
+        <div id="certificateResult" class="certificate-result-area" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function() {
+  const CERTIFICATE_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwBsiE71_PLO3yZJGznpQO1vbrcjzsI9NmrS1uiqLGndm5e1ah_dQw3YdKqeWSmvnz3eg/exec";
+  const form = document.getElementById("certificateDownloadForm");
+  const result = document.getElementById("certificateResult");
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function showLoading() {
+    result.innerHTML = `
+      <div class="certificate-message">
+        <span class="loading-line"><span class="loading-dot"></span> Checking certificate records...</span>
+      </div>
+    `;
+  }
+
+  function showProcessing() {
+    result.innerHTML = `
+      <div class="certificate-message processing">
+        <strong>Your certificate record has been located.</strong>
+        <p>Your certificate is currently being processed.</p>
+        <p>Please allow 24 to 48 hours after completing all program requirements.</p>
+      </div>
+    `;
+  }
+
+  function showNotFound() {
+    result.innerHTML = `
+      <div class="certificate-message not-found">
+        <strong>We could not locate a certificate record matching the information provided.</strong>
+        <p>Please verify your:</p>
+        <ul>
+          <li>Personal Email Address</li>
+          <li>Course Code</li>
+          <li>Training Date</li>
+        </ul>
+        <p>If the issue persists, please contact INNOVPH.</p>
+      </div>
+    `;
+  }
+
+  function showError(message) {
+    result.innerHTML = `
+      <div class="certificate-message error">
+        <strong>Unable to complete the request.</strong>
+        <p>${escapeHtml(message || "Please try again later.")}</p>
+      </div>
+    `;
+  }
+
+  function normalizeCertificates(data) {
+    if (Array.isArray(data.certificates)) return data.certificates;
+    if (Array.isArray(data.certificateRecords)) return data.certificateRecords;
+    if (Array.isArray(data.records)) return data.records;
+    if (data.certificate) return [data.certificate];
+    return [data];
+  }
+
+  function getField(record, names) {
+    for (const name of names) {
+      if (record && record[name] !== undefined && record[name] !== null && String(record[name]).trim() !== "") {
+        return record[name];
+      }
+    }
+    return "";
+  }
+
+  function field(label, value) {
+    return `
+      <div class="certificate-field">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(value || "—")}</strong>
+      </div>
+    `;
+  }
+
+  function renderAvailable(data) {
+    const certificates = normalizeCertificates(data);
+    const cards = certificates.map((cert, index) => {
+      const studentNo = getField(cert, ["studentNo", "studentNumber", "Student No"]);
+      const fullName = getField(cert, ["fullName", "Full Name"]);
+      const programTitle = getField(cert, ["programTitle", "Program Title"]);
+      const courseCode = getField(cert, ["courseCode", "Course Code"]);
+      const actualTrainingDate = getField(cert, ["actualTrainingDate", "trainingDate", "Actual Training Date", "Training Date"]);
+      const certificateNumber = getField(cert, ["certificateNumber", "Certificate Number"]);
+      const dateGenerated = getField(cert, ["dateGenerated", "Date Generated"]);
+      const certificateLink = getField(cert, ["certificateLink", "Certificate Link", "pdfLink", "PDF Link"]);
+
+      return `
+        <div class="certificate-record-card">
+          <h3>Certificate ${certificates.length > 1 ? index + 1 : ""}</h3>
+          <div class="certificate-record-grid">
+            ${field("Student No", studentNo)}
+            ${field("Full Name", fullName)}
+            ${field("Program Title", programTitle)}
+            ${field("Course Code", courseCode)}
+            ${field("Actual Training Date", actualTrainingDate)}
+            ${field("Certificate Number", certificateNumber)}
+            ${field("Date Generated", dateGenerated)}
+          </div>
+          <div class="certificate-download-actions">
+            ${certificateLink ? `<a class="btn primary" href="${escapeHtml(certificateLink)}" target="_blank" rel="noopener">Download Certificate</a>` : `<span class="certificate-message">Certificate link is not yet available.</span>`}
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    result.innerHTML = `
+      <div class="certificate-message available">
+        <strong>Certificate record available.</strong>
+        <p>Your certificate record has been located. Use the download button below to access your certificate.</p>
+      </div>
+      ${cards}
+    `;
+  }
+
+  async function requestCertificate(payload) {
+    const response = await fetch(CERTIFICATE_WEB_APP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) throw new Error("The certificate service could not be reached.");
+    return response.json();
+  }
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const payload = {
+      action: "downloadCertificate",
+      personalEmail: document.getElementById("personalEmail").value.trim(),
+      courseCode: document.getElementById("courseCode").value.trim(),
+      trainingDate: document.getElementById("trainingDate").value
+    };
+
+    if (!payload.personalEmail || !payload.courseCode || !payload.trainingDate) {
+      showError("Please complete all required fields.");
+      return;
+    }
+
+    showLoading();
+
+    try {
+      const data = await requestCertificate(payload);
+      const status = String(data.status || "").toUpperCase();
+
+      if (status === "AVAILABLE") {
+        renderAvailable(data);
+      } else if (status === "PROCESSING") {
+        showProcessing();
+      } else if (status === "NOT_FOUND") {
+        showNotFound();
+      } else {
+        showError(data.message || "The certificate service returned an unexpected response.");
+      }
+    } catch (error) {
+      showError(error.message);
+    }
+  });
+})();
+</script>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/logos/innovph-logo.png" alt="INNOVPH Logo" class="footer-logo">
+      <p>Driving Solutions To The Future</p>
+      <p class="footer-note">Serving Clients Across the Philippines and Globally through virtual and on-site engagements.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
+      <a href="business-transformation.html">Business Transformation</a>
+      <a href="training.html">Training</a>
+      <a href="technology.html">Technology</a>
+      <a href="business-solutions.html">Business Solutions</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="why-innovph.html">Why INNOVPH</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+639772953056">0977 295 3056</a>
+      <a href="mailto:contact_us@innovationphconsulting.com">contact_us@innovationphconsulting.com</a>
+      <a href="https://www.facebook.com/innovationphilippinesconsulting" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/Innovph" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 INNOVPH. All rights reserved.</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

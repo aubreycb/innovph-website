@@ -7,66 +7,167 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12.4">
-<title>INNOVPH | Transforming Ideas Into Measurable Results</title>
-<meta name="description" content="INNOVPH helps organizations improve performance through business transformation, process excellence, governance, technology enablement, and intelligent automation.">
+<link rel="stylesheet" href="css/style.css?v=13.0.3">
+<title>Certificate Verification | INNOVPH Academy</title>
+<meta name="description" content="Verify the authenticity of INNOVPH-issued certificates using the certificate number.">
 
-<title>INNOVPH Academy | Learning, Certification, Attendance and Verification</title>
-<meta name="description" content="INNOVPH Academy is the gateway for public programs, course outlines, attendance submission, examinations, certificate verification, student access, and learner support.">
-
-<title>Verify Certificate | INNOVPH Academy</title>
-<meta name="description" content="Verify the authenticity of an INNOVPH-issued certificate.">
 
 <style>
-.launch-placeholder-card {
+.verify-card {
   border: 1px solid rgba(17,24,39,.10);
   background: #fff;
   border-radius: 18px;
   padding: 34px;
+  box-shadow: 0 18px 45px rgba(17,24,39,.06);
 }
-.launch-status-pill {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #111827;
-  border: 1px solid rgba(17,24,39,.18);
-  border-radius: 999px;
-  padding: 8px 14px;
-  margin-bottom: 18px;
-}
-.launch-placeholder-card p {
-  color: #4b5563;
-  line-height: 1.75;
-  font-size: 15px;
-  max-width: 850px;
-}
-.launch-note-grid {
+.verify-form {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: end;
+  margin-top: 24px;
+}
+.verify-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #374151;
+  margin-bottom: 8px;
+}
+.verify-form input {
+  width: 100%;
+  border: 1px solid rgba(17,24,39,.16);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+}
+.verify-form input:focus {
+  outline: none;
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17,24,39,.08);
+}
+.verify-form .btn {
+  white-space: nowrap;
+  min-height: 47px;
+}
+.verify-result-area {
   margin-top: 26px;
 }
-.launch-note {
+.verify-message {
   border: 1px solid rgba(17,24,39,.10);
   border-radius: 14px;
   padding: 18px;
   background: #fafafa;
+  color: #374151;
+  line-height: 1.7;
+  font-size: 14px;
 }
-.launch-note h3 {
-  font-size: 15px;
-  margin: 0 0 8px;
+.verify-message strong {
+  display: block;
   color: #111827;
+  font-size: 15px;
+  margin-bottom: 8px;
 }
-.launch-note p {
-  font-size: 13px;
-  margin: 0;
+.verify-message p,
+.verify-message li,
+.verify-message span {
+  color: #374151 !important;
 }
-@media (max-width: 900px) {
-  .launch-note-grid { grid-template-columns: 1fr; }
+.verify-message.valid {
+  background: #ecfdf5;
+  border-color: rgba(22,163,74,.28);
+}
+.verify-message.valid strong,
+.verify-message.valid p,
+.verify-message.valid span {
+  color: #14532d !important;
+}
+.verify-message.not-ready {
+  background: #fff8e6;
+  border-color: #f2c46d;
+}
+.verify-message.not-ready strong,
+.verify-message.not-ready p {
+  color: #1f2937 !important;
+}
+.verify-message.not-found,
+.verify-message.error {
+  background: #fef2f2;
+  border-color: rgba(185,28,28,.20);
+}
+.verify-message.not-found strong,
+.verify-message.not-found p,
+.verify-message.error strong,
+.verify-message.error p {
+  color: #7f1d1d !important;
+}
+.verify-record-card {
+  border: 1px solid rgba(17,24,39,.10);
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 18px;
+}
+.verify-record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+.verify-field {
+  border-bottom: 1px solid rgba(17,24,39,.08);
+  padding: 10px 0;
+}
+.verify-field span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.verify-field strong {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+.loading-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #111827;
+  animation: pulseDot 1s infinite ease-in-out;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: .25; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@media (max-width: 780px) {
+  .verify-form,
+  .verify-record-grid {
+    grid-template-columns: 1fr;
+  }
+  .verify-form .btn {
+    width: 100%;
+  }
+  .verify-card {
+    padding: 24px;
+  }
 }
 </style>
+
+
 </head>
 <body>
 <header class="site-header">
@@ -77,6 +178,7 @@
     <button class="menu-toggle" aria-label="Open menu">☰</button>
     <nav class="main-nav">
       <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
       <a href="business-transformation.html">Business Transformation</a>
       <a href="training.html">Training</a>
       <a href="technology.html">Technology</a>
@@ -87,27 +189,182 @@
     <a href="contact.html" class="nav-cta">Request Consultation</a>
   </div>
 </header>
+
+
 <main>
   <section class="page-hero academy-hero">
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
-      <p class="eyebrow">Certificate Verification</p>
-      <h1>Verify Certificate</h1>
-      <p class="lead">Certificate verification is currently undergoing transition as we enhance the INNOVPH Academy experience.</p>
-      <div class="button-row"><a href="academy.html" class="btn outline">Back to Academy</a></div>
+      <p class="eyebrow">INNOVPH Academy</p>
+      <h1>Certificate Verification</h1>
+      <p class="lead">Verify the authenticity of an INNOVPH-issued certificate using the certificate number provided on the certificate.</p>
+      <div class="button-row"><a href="academy.html" class="btn outline">Back to Academy</a><a href="academy-certificate-download.html" class="btn outline">Certificate Download</a></div>
     </div>
   </section>
+
   <section class="academy-section academy-main">
     <div class="container">
-      <div class="academy-panel dedicated-panel launch-placeholder-card">
-        <span class="launch-status-pill">Coming Soon</span>
+      <div class="academy-panel dedicated-panel verify-card">
         <p class="section-kicker">Certificate Verification</p>
-        <h2 class="bt-section-title">Certificate verification is currently undergoing transition.</h2>
-        <p>We are currently updating this Academy service to improve the participant and credential verification experience. Please check back soon.</p>
+        <h2 class="bt-section-title">Verify an issued certificate.</h2>
+        <p class="bt-intro">Enter the certificate number exactly as it appears on the INNOVPH-issued certificate.</p>
+
+        <form id="certificateVerifyForm" class="verify-form">
+          <div>
+            <label for="certificateNumber">Certificate Number</label>
+            <input type="text" id="certificateNumber" name="certificateNumber" autocomplete="off" required>
+          </div>
+          <button type="submit" class="btn primary">Verify Certificate</button>
+        </form>
+
+        <div id="verifyResult" class="verify-result-area" aria-live="polite"></div>
       </div>
     </div>
   </section>
 </main>
+
+<script>
+(function() {
+  const VERIFY_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEjSx3N31NzWGFtVNRSUdfCGUk6z0KHshhUv0ye8jyrQd-1LyJHMnPs2xw4afbbw4S1A/exec";
+  const form = document.getElementById("certificateVerifyForm");
+  const result = document.getElementById("verifyResult");
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function showLoading() {
+    result.innerHTML = `
+      <div class="verify-message">
+        <span class="loading-line"><span class="loading-dot"></span> Verifying certificate record...</span>
+      </div>
+    `;
+  }
+
+  function showNotFound() {
+    result.innerHTML = `
+      <div class="verify-message not-found">
+        <strong>Certificate could not be verified.</strong>
+        <p>Please check the certificate number and try again.</p>
+      </div>
+    `;
+  }
+
+  function showNotReady() {
+    result.innerHTML = `
+      <div class="verify-message not-ready">
+        <strong>This certificate record exists, but the certificate has not yet been generated.</strong>
+      </div>
+    `;
+  }
+
+  function showError(message) {
+    result.innerHTML = `
+      <div class="verify-message error">
+        <strong>Unable to complete verification.</strong>
+        <p>${escapeHtml(message || "Please try again later.")}</p>
+      </div>
+    `;
+  }
+
+  function getField(record, names) {
+    for (const name of names) {
+      if (record && record[name] !== undefined && record[name] !== null && String(record[name]).trim() !== "") {
+        return record[name];
+      }
+    }
+    return "";
+  }
+
+  function field(label, value) {
+    return `
+      <div class="verify-field">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(value || "—")}</strong>
+      </div>
+    `;
+  }
+
+  function showValid(data) {
+    const certificateNumber = getField(data, ["certificateNumber", "Certificate Number"]);
+    const studentNo = getField(data, ["studentNo", "studentNumber", "Student No"]);
+    const fullName = getField(data, ["fullName", "Full Name"]);
+    const programTitle = getField(data, ["programTitle", "Program Title"]);
+    const courseCode = getField(data, ["courseCode", "Course Code"]);
+    const actualTrainingDate = getField(data, ["actualTrainingDate", "trainingDate", "Actual Training Date", "Training Date"]);
+    const dateGenerated = getField(data, ["dateGenerated", "Date Generated"]);
+
+    result.innerHTML = `
+      <div class="verify-message valid">
+        <strong>Certificate Status: VALID</strong>
+        <p>This certificate record has been verified by INNOVPH Academy.</p>
+      </div>
+      <div class="verify-record-card">
+        <div class="verify-record-grid">
+          ${field("Certificate Number", certificateNumber)}
+          ${field("Student No", studentNo)}
+          ${field("Full Name", fullName)}
+          ${field("Program Title", programTitle)}
+          ${field("Course Code", courseCode)}
+          ${field("Actual Training Date", actualTrainingDate)}
+          ${field("Date Generated", dateGenerated)}
+        </div>
+      </div>
+    `;
+  }
+
+  async function verifyCertificate(payload) {
+    const response = await fetch(VERIFY_WEB_APP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) throw new Error("The verification service could not be reached.");
+    return response.json();
+  }
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const certificateNumber = document.getElementById("certificateNumber").value.trim();
+
+    if (!certificateNumber) {
+      showError("Please enter a certificate number.");
+      return;
+    }
+
+    showLoading();
+
+    try {
+      const data = await verifyCertificate({
+        action: "verifyCertificate",
+        certificateNumber: certificateNumber
+      });
+
+      const status = String(data.status || "").toUpperCase();
+
+      if (status === "VALID") {
+        showValid(data);
+      } else if (status === "NOT_READY") {
+        showNotReady();
+      } else if (status === "NOT_FOUND") {
+        showNotFound();
+      } else {
+        showError(data.message || "The verification service returned an unexpected response.");
+      }
+    } catch (error) {
+      showError(error.message);
+    }
+  });
+})();
+</script>
+
 <footer class="footer">
   <div class="container footer-grid">
     <div>
@@ -118,6 +375,7 @@
     <div>
       <h4>Quick Links</h4>
       <a href="index.html">Home</a>
+      <a href="insights.html">Insights</a>
       <a href="business-transformation.html">Business Transformation</a>
       <a href="training.html">Training</a>
       <a href="technology.html">Technology</a>
